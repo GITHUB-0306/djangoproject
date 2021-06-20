@@ -1,0 +1,210 @@
+{% extends 'webapp/demo.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Financial Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    {% for data in Registers %}
+    <center>
+        <form class="form-horizontal" role="form" action="{% url 'addmemberfinanciall' username=data.username %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-25">
+
+                    <label for="firstName" >UserName </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="username" placeholder="First Name" value="{{ data.username }}" autofocus required>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="firstName" > Name*</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="firstName" name="name" placeholder=""  autofocus required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lastName" >Month</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="lastName" name="month" placeholder=""  autofocus required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lastName" >Date</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="address" name="date" placeholder="" autofocus required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lastName" >MonthlySaving</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="village" name="ms" placeholder=""  autofocus required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lastName" >Penalty</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="pincode" name="penalty" placeholder=""  autofocus required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lastName" >Profit</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="aadhar" name="profit" placeholder=""  autofocus required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lastName" >Principal</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="aadhar" name="principal" placeholder=""  autofocus required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label for="email" >Loan </label>
+                    </div>
+
+                    <div class="col-75">
+                        <input type="text" placeholder=""  name="loan" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="dateofbirth" >OutstandingLoan</label>
+                    </div>
+
+                    <div class="col-75">
+                        <input type="text" id="dateofbirth" name="ol" placeholder=""  required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="age" >Repayment</label>
+                    </div>
+
+                    <div class="col-75">
+                        <input type="text" id="age" name="rp" placeholder=""  required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+
+                        <label for="phoneNumber">RateOfInterest</label>
+                    </div>
+
+                    <div class="col-75">
+                        <input type="text" id="phoneNumber" name="roi" placeholder="" required>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+
+                        <label for="phoneNumber">Total</label>
+                    </div>
+
+                    <div class="col-75">
+                        <input type="text" id="phoneNumber" name="total" placeholder="" required>
+                    </div>
+
+                </div>
+
+
+
+
+                <!-- /.form-group -->
+
+                <button type="submit" class="btn btn-primary" style="width:200px">submit</button>
+                {% endfor %}
+
+
+        </form>
+    </center><!-- /form -->
+    </body>
+</html>
+    {% endblock content %}

@@ -1,0 +1,142 @@
+{% extends 'webapp/demo.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <center>
+        <form class="form-horizontal" role="form" action="{% url 'productadd' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="firstName">Product Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="name" placeholder="Product Name" autofocus required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lastName">Description</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="desc" placeholder="Description" autofocus required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lastName">Type</label>
+                </div>
+                <div class="col-75">
+                    <select name="cat" id="cat">
+                        <option value="Handcraft Paper">Handcraft Paper</option>
+                        <option value="Homemade Masale">Homemade Masale</option>
+                        <option value="Homemade Pickle">Homemade Pickle</option>
+                        <option value="Handcraft woolen">Handcraft woolen</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lastName">Price</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="price" placeholder="Price" autofocus required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lastName">Product Image</label>
+                </div>
+                <div class="col-75">
+                    <input type="file" name="myfile" placeholder="Product Image" autofocus required>
+                </div>
+            </div>
+
+
+
+
+
+
+            <!-- /.form-group -->
+
+            <button type="submit" class="btn btn-primary" style="width:200px">submit</button>
+
+
+
+        </form>
+    </center><!-- /form -->
+</body>
+</html>
+    {% endblock content %}

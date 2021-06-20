@@ -1,0 +1,64 @@
+{% extends 'webapp/demo.html' %}
+
+{% block content %}
+
+
+
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="shadow-lg p-3 mb-2 bg-white rounded">
+            <div class="well">
+                <center><a href="{% url 'MemberSignup' %}">member signup</a></center>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="well">
+                <center><a href="{% url 'viewmember' %}">ViewMembers</a></center>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="well">
+
+                <center>  <a href="{% url 'viewcustomer' %}">ViewCustomer</a></center>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="shadow-lg p-3 mb-2 bg-white rounded">
+            <div class="well">
+                <center>  <a href="{% url 'productadd' %}">Add Product </a></center>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="well">
+                <center>  <a href="{% url 'viewproduct' %}">ViewProduct</a></center>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="well">
+                <center>  <a href="#"></a></center>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}
